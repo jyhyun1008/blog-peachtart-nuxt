@@ -6,13 +6,16 @@
                 <a :href="`/${category}`">{{ category }}</a>
             </div>
         </div>
-        <div v-for="(post, i) of mdList">
+        <div v-for="(post, i) of mdList" style="display: flex;">
             <a :href="`/${post.split('-')[1]}/${post.split('-')[2]}`" class="post-list">
                 <div class="box-cont">
                     <h2>{{post.split('-')[2]}}</h2>
-                    <p>{{ mdContent[i].split('<--->')[1].slice(0,100) }}</p>
+                    <p>{{ mdContent[i].split('<--->')[1].slice(0,256) }}</p>
                 </div>
             </a>
+            <div v-if="!mdContent[i].split('<--->')[0].split('eyeCatchImg:')[1] || !mdContent[i].split('<--->')[0].split('eyeCatchImg:')[1].split('\n')[0].includes('none')">
+                <img :src="`${mdContent[i].split('eyeCatchImg:')[1].split('\n')[0]}`" />
+            </div>
         </div>
     </div>
 </template>

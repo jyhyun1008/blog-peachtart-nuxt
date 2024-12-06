@@ -69,6 +69,7 @@ a {
 
 a.post-list {
   color: inherit !important;
+  width: 100%;
 }
 
 body {
