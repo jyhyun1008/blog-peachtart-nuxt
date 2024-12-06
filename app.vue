@@ -80,6 +80,10 @@ body {
   line-height: 1.6rem;
 }
 
+img {
+  width: 100%;
+}
+
 /*navbar*/
 
 .menu_toolbar {
@@ -195,7 +199,7 @@ a.post-list {
 
 .post-list img {
   max-width: 200px;
-  width: 20vw;
+  width: 40vw;
   aspect-ratio: 16 / 9;
   object-fit: cover;
   object-position: center;
