@@ -10,7 +10,7 @@
             <a :href="`/${post.split('-')[1]}/${post.split('-')[2]}`" class="post-list">
                 <div class="box-cont">
                     <h2>{{post.split('-')[2]}}</h2>
-                    {{ marked.parse(mdContent[i].split('<--->')[1]) }}
+                    <p>{{ mdContent[i].split('<--->')[1].slice(0,100) }}</p>
                 </div>
             </a>
         </div>
