@@ -201,9 +201,10 @@ a.post-list {
 .post-list img {
   max-width: 200px;
   width: 40vw;
-  aspect-ratio: 16 / 9;
+  height: 100%;
   object-fit: cover;
   object-position: center;
+  border-radius: 10px;
 }
 
 .post-list .box-cont {
