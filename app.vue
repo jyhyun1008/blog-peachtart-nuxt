@@ -82,6 +82,7 @@ body {
 
 img {
   width: 100%;
+  border-radius: 10px;
 }
 
 /*navbar*/
