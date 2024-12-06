@@ -8,8 +8,8 @@
                 <a :href="`/p/${category}`">{{ category }}</a>
             </div>
         </div>
-        <div v-for="(post, i) of mdList">
-            <a :href="`/p/${post.split('-')[2]}/${post.split('-')[0]}-${post.split('-')[1]}`" class="post-list" v-if="post.split('-')[2] == route.params.category">
+        <div v-for="(post, i) in mdList">
+            <a :href="`/p/${post.split('-')[2].split('.')[0]}/${post.split('-')[0]}-${post.split('-')[1]}`" class="post-list" v-if="post.split('-')[2].split('.')[0] == route.params.category">
                 <div class="box-cont" v-if="mdContent[i].split('<--->')[0].split('title:')[1]">
                     <div class="post-cont">
                         <h2>{{ mdContent[i].split('<--->')[0].split('title:')[1].split('\n')[0] }}</h2>
@@ -41,7 +41,7 @@ async function getPost() {
             for (let post of postList.tree) {
                 if (post.path.includes('.md')) {
                     mdList.push(post.path.split('.')[0])
-                    let cat = post.path.split('-')[2] ? post.path.split('-')[2] : '미분류'
+                    let cat = post.path.split('-')[2] ? post.path.split('-')[2].split('.')[0] : '미분류'
                     categories.push(cat)
 
                     var content = await $fetch(`https://raw.githubusercontent.com/jyhyun1008/blog-peachtart-nuxt/main/md/${post.path}`)
@@ -50,6 +50,9 @@ async function getPost() {
             }
         }
     }
+
+    mdList.reverse()
+    mdContent.reverse()
 
     var categorieset = new Set(categories);
     categories = [...categorieset];

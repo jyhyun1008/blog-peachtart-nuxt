@@ -13,8 +13,8 @@
         <div class="mid-menu">
           <div class="menu-item"><a href="https://blog.peacht.art"><i class="hgi-stroke hgi-pencil"></i><span class="fullname"> 블로그</span></a></div>
           <div class="menu-item"><a href="https://d.peacht.art"><i class="hgi-stroke hgi-comment-01"></i><span class="fullname"> 커뮤니티</span></a></div>
-          <div class="menu-item"><a href="https://blog.peacht.art/pages/docs"><i class="hgi-stroke hgi-doc-01"></i><span class="fullname"> 문서</span></a></div>
-          <div class="menu-item"><a href="https://blog.peacht.art/pages/shop"><i class="hgi-stroke hgi-shopping-bag-02"></i><span class="fullname"> 쇼핑</span></a></div>
+          <div class="menu-item"><a href="https://blog.peacht.art/docs"><i class="hgi-stroke hgi-doc-01"></i><span class="fullname"> 문서</span></a></div>
+          <div class="menu-item"><a href="https://blog.peacht.art/shop"><i class="hgi-stroke hgi-shopping-bag-02"></i><span class="fullname"> 쇼핑</span></a></div>
         </div>
       </div>
       <NuxtPage />
