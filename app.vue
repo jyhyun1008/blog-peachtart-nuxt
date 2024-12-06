@@ -67,6 +67,10 @@ a {
   text-decoration: none;
 }
 
+a.post-list {
+  color: inherit !important;
+}
+
 body {
   font-family: Galmuri11;
   background-color: var(--bg);
@@ -157,7 +161,7 @@ body {
     background-color: white;
     overflow: hidden;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     gap: 10px;
     padding: 10px;
 }
