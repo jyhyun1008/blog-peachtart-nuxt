@@ -110,6 +110,7 @@ img {
 
 #top-menu img {
     height: 3em;
+    width: 3em;
 }
 
 .mid-menu {
