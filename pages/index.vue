@@ -31,7 +31,6 @@ async function getPost() {
     for (let folder of folderList.tree) {
         if (folder.path == 'md') {
             var postList = await $fetch(folder.url)
-            console.log(postList)
 
             for (let post of postList.tree) {
                 if (post.path.includes('.md')) {
@@ -42,6 +41,8 @@ async function getPost() {
                     mdContent.push(content)
                 }
             }
+
+            console.log(mdContent)
         }
     }
 
