@@ -1,14 +1,17 @@
 <template>
   <div id="app">
     <Head>
-      <Title>CabinetKey 캐비닛키</Title>
-      <Meta name="description" content="피치타르트 공식 블로긔"/>
+      <Title>피치타르트 블로그</Title>
+      <Meta name="description" content="피치타르트 공식 블로그"/>
       <link rel="stylesheet" href="https://cdn.hugeicons.com/font/hgi-stroke-rounded.css">
+      <meta property="og:title" content="피치타르트 블로그" /> 
+      <meta property="og:description" content="피치타르트 공식 블로그" /> 
+      <meta property="og:image" content="/public/logo.png" /> 
     </Head>
     <NuxtLayout>
       <div id="top-menu">
         <div class="logo-menu">
-          <div class="logo-item"><a href="https://peacht.art"><img src="https://tistory1.daumcdn.net/tistory/7128980/skinSetting/e2f6d4b6e4b8408fa690e1a600090236"></a></div>
+          <div class="logo-item"><a href="https://peacht.art"><img src="/public/logo.png"></a></div>
         </div>
         <div class="mid-menu">
           <div class="menu-item"><a href="https://blog.peacht.art"><i class="hgi-stroke hgi-pencil"></i><span class="fullname"> 블로그</span></a></div>
