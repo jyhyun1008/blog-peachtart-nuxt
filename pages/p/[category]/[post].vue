@@ -8,13 +8,13 @@
             </div>
         </div>
         <div v-for="(post, i) of mdList">
-            <a :href="`/p/${post.split('-')[0]}/${post.split('-')[1]}`" class="post-list">
-                <div class="box-cont" v-if="mdContent[i].split('<--->')[0].split('title:')[1]">
+            <a :href="`/p/${post.split('-')[1]}/${post.split('-')[2]}-${post.split('-')[0]}`" class="post-list">
+                <div class="box-cont">
                     <div class="post-cont">
-                        <h2>{{ mdContent[i].split('<--->')[0].split('title:')[1].split('\n')[0] }}</h2>
+                        <h2>{{post.split('-')[2]}}</h2>
                         <p>{{ mdContent[i].split('<--->')[1].slice(0,256) }}</p>
                     </div>
-                    <div v-if="!mdContent[i].split('<--->')[0].split('eyeCatchImg:')[1]">
+                    <div v-if="!mdContent[i].split('<--->')[0].split('eyeCatchImg:')[1] || !mdContent[i].split('<--->')[0].split('eyeCatchImg:')[1].split('\n')[0].includes('none')">
                         <img :src="`${mdContent[i].split('eyeCatchImg:')[1].split('\n')[0]}`" />
                     </div>
                 </div>
@@ -24,6 +24,8 @@
 </template>
 <script setup>
 
+import { marked } from 'marked';
+//const route = useRoute()
 var folderList = await $fetch(`https://api.github.com/repos/jyhyun1008/blog-peachtart-nuxt/git/trees/main?recursive=1`)
 
 var mdList = []
@@ -39,7 +41,7 @@ async function getPost() {
             for (let post of postList.tree) {
                 if (post.path.includes('.md')) {
                     mdList.push(post.path.split('.')[0])
-                    categories.push(post.path.split('-')[0])
+                    categories.push(post.path.split('-')[1])
 
                     var content = await $fetch(`https://raw.githubusercontent.com/jyhyun1008/blog-peachtart-nuxt/main/md/${post.path}`)
                     mdContent.push(content)

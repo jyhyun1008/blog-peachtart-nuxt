@@ -8,7 +8,7 @@
             </div>
         </div>
         <div v-for="(post, i) of mdList">
-            <a :href="`/p/${post.split('-')[0]}/${post.split('-')[1]}`" class="post-list">
+            <a :href="`/p/${post.split('-')[0]}/${post.split('-')[1]}`" class="post-list" v-if="post.split('-')[0] == route.params.category">
                 <div class="box-cont" v-if="mdContent[i].split('<--->')[0].split('title:')[1]">
                     <div class="post-cont">
                         <h2>{{ mdContent[i].split('<--->')[0].split('title:')[1].split('\n')[0] }}</h2>
@@ -24,6 +24,7 @@
 </template>
 <script setup>
 
+const route = useRoute()
 var folderList = await $fetch(`https://api.github.com/repos/jyhyun1008/blog-peachtart-nuxt/git/trees/main?recursive=1`)
 
 var mdList = []
