@@ -1,6 +1,6 @@
 <template>
     <div id="container">
-        <h1 id="title">피치타르트 블로그</h1>
+        <h1 id="title"><a href="/">피치타르트 블로그</a></h1>
         <h2 id="category-title">{{ route.params.category }}</h2>
         <div style="display: flex; align-items: center; gap: 12px">
             다른 카테고리 : 
@@ -9,7 +9,7 @@
             </div>
         </div>
         <div v-for="(post, i) of mdList">
-            <a :href="`/p/${post.split('-')[0]}/${post.split('-')[1]}-${post.split('-')[2]}`" class="post-list" v-if="post.split('-')[0] == route.params.category">
+            <a :href="`/p/${post.split('-')[2]}/${post.split('-')[0]}-${post.split('-')[1]}`" class="post-list" v-if="post.split('-')[2] == route.params.category">
                 <div class="box-cont" v-if="mdContent[i].split('<--->')[0].split('title:')[1]">
                     <div class="post-cont">
                         <h2>{{ mdContent[i].split('<--->')[0].split('title:')[1].split('\n')[0] }}</h2>
@@ -41,7 +41,8 @@ async function getPost() {
             for (let post of postList.tree) {
                 if (post.path.includes('.md')) {
                     mdList.push(post.path.split('.')[0])
-                    categories.push(post.path.split('-')[0])
+                    let cat = post.path.split('-')[2] ? post.path.split('-')[2] : '미분류'
+                    categories.push(cat)
 
                     var content = await $fetch(`https://raw.githubusercontent.com/jyhyun1008/blog-peachtart-nuxt/main/md/${post.path}`)
                     mdContent.push(content)

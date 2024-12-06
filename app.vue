@@ -197,4 +197,12 @@ a.post-list {
   justify-content: space-between;
 }
 
+/*post*/
+
+#post-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 </style>
