@@ -1,20 +1,21 @@
 <template>
     <div id="container">
         <h1 id="title">피치타르트 블로그</h1>
+        <h2 id="category-title">{{ route.params.category }}</h2>
         <div style="display: flex; align-items: center; gap: 12px">
-            카테고리 : 
+            다른 카테고리 : 
             <div v-for="category of categories" class="category-list">
                 <a :href="`/p/${category}`">{{ category }}</a>
             </div>
         </div>
         <div v-for="(post, i) of mdList">
-            <a :href="`/p/${post.split('-')[0]}/${post.split('-')[1]}`" class="post-list" v-if="post.split('-')[0] == route.params.category">
+            <a :href="`/p/${post.split('-')[0]}/${post.split('-')[1]}-${post.split('-')[2]}`" class="post-list" v-if="post.split('-')[0] == route.params.category">
                 <div class="box-cont" v-if="mdContent[i].split('<--->')[0].split('title:')[1]">
                     <div class="post-cont">
                         <h2>{{ mdContent[i].split('<--->')[0].split('title:')[1].split('\n')[0] }}</h2>
                         <p>{{ mdContent[i].split('<--->')[1].slice(0,256) }}</p>
                     </div>
-                    <div v-if="!mdContent[i].split('<--->')[0].split('eyeCatchImg:')[1]">
+                    <div v-if="mdContent[i].split('<--->')[0].split('eyeCatchImg:').length > 1">
                         <img :src="`${mdContent[i].split('eyeCatchImg:')[1].split('\n')[0]}`" />
                     </div>
                 </div>
