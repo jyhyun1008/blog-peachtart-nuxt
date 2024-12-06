@@ -169,6 +169,7 @@ body {
     flex-direction: column;
     gap: 10px;
     padding: 10px;
+    font-size: 16px;
 }
 
 /*categorylist*/
@@ -177,6 +178,7 @@ body {
   border-radius: 10px;
   background-color: var(--accent);
   padding: 0 4px;
+  font-size: 16px;
 }
 
 .category-list a {
