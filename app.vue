@@ -113,6 +113,10 @@ body {
     display: flex;
 }
 
+.logo-item {
+  height: 3em;
+}
+
 .logo-item:hover {
     opacity: 0.6;
 }
