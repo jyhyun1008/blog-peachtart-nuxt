@@ -1,6 +1,6 @@
 <template>
     <div id="container">
-        <h1 id="title"><a href="/">피치타르트 블로그</a></h1>
+        <h1 id="title"><a href="/">호토라즈의 블로그</a></h1>
         <div class="box-cont">
             <div id="post-header">
                 <h2>{{ postTitle }}</h2>
@@ -17,9 +17,9 @@ import { marked } from 'marked';
 const route = useRoute()
 var content
 try {
-    content = await $fetch(`https://raw.githubusercontent.com/jyhyun1008/blog-peachtart-nuxt/main/md/${route.params.post}-${route.params.category}.md`)
-} catch(e) {
-    content = await $fetch(`https://raw.githubusercontent.com/jyhyun1008/blog-peachtart-nuxt/main/md/${route.params.post}.md`)
+    content = await $fetch(`https://raw.githubusercontent.com/HotoRas/blog/main/blog/md/${route.params.post}-${route.params.category}.md`)
+} catch (e) {
+    content = await $fetch(`https://raw.githubusercontent.com/HotoRas/blog/main/blog/md/${route.params.post}.md`)
 }
 var postTitle = content.split('<--->')[0]?.split('title:')[1]?.split('\n')[0]
 var postContent = marked.parse(content.split('<--->')[1])

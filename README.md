@@ -1,8 +1,8 @@
-# Nuxt Minimal Starter
+# 호토라즈의 블로그
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+본 블로그는 [피치타르트 블로그](https://github.com/jyhyun1008/blog-peachtart-nuxt)([바로가기](https://blog.peacht.art))의 포크입니다.
 
-## Setup
+## 초기 설정
 
 Make sure to install dependencies:
 
@@ -20,7 +20,7 @@ yarn install
 bun install
 ```
 
-## Development Server
+## 개발 서버
 
 Start the development server on `http://localhost:3000`:
 
@@ -38,7 +38,7 @@ yarn dev
 bun run dev
 ```
 
-## Production
+## 실제 서버
 
 Build the application for production:
 
