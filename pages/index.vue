@@ -34,22 +34,17 @@ var categories = []
 async function getPost() {
 
     for (let folder of folderList.tree) {
-        if (folder.path == 'blog') {
-            var folderListBlog = await $fetch(folder.url)
-            for (let folder of folderListBlog.tree) {
-                if (folder.path == 'md') {
-                    var postList = await $fetch(folder.url)
+        if (folder.path == 'blog/md') {
+            var postList = await $fetch(folder.url)
 
-                    for (let post of postList.tree) {
-                        if (post.path.includes('.md')) {
-                            mdList.push(post.path.split('.')[0])
-                            let cat = post.path.split('-')[2] ? post.path.split('-')[2].split('.')[0] : '미분류'
-                            categories.push(cat)
+            for (let post of postList.tree) {
+                if (post.path.includes('.md')) {
+                    mdList.push(post.path.split('.')[0])
+                    let cat = post.path.split('-')[2] ? post.path.split('-')[2].split('.')[0] : '미분류'
+                    categories.push(cat)
 
-                            var content = await $fetch(`https://raw.githubusercontent.com/HotoRas/blog/main/blog/md/${post.path}`)
-                            mdContent.push(content)
-                        }
-                    }
+                    var content = await $fetch(`https://raw.githubusercontent.com/HotoRas/blog/main/blog/md/${post.path}`)
+                    mdContent.push(content)
                 }
             }
         }
