@@ -37,7 +37,7 @@ async function getPost() {
         if (folder.path == 'blog') {
             var folderListBlog = await $fetch(folder.url)
             for (let folder of folderListBlog.tree) {
-                if (folder.path == 'blog') {
+                if (folder.path == 'md') {
                     var postList = await $fetch(folder.url)
 
                     for (let post of postList.tree) {
