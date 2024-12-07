@@ -80,7 +80,7 @@ body {
   line-height: 1.6rem;
 }
 
-h1, h2 {
+post-content > h1, post-content > h2 {
   border-bottom: 1px solid var(--border);
 }
 
