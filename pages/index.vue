@@ -34,12 +34,12 @@ let categories = []
 
 async function getPost() {
     let postList = {}
-    folderList.tree.foreach(async (folder) => {
+    for(let folder in folderList.tree) {
         if (folder.path == blogContentPath) {
             postList = await $fetch(folder.url)
         }
-    })
-    postList.tree.foreach(async (post) => {
+    }
+    for(let post in postList.tree) {
         if (post.path.includes('.md')) {
             mdList.push(post.path.split('.')[0])
             let cat = post.path.split('-')[2] ? post.path.split('-')[2].split('.')[0] : '미분류'
@@ -48,7 +48,7 @@ async function getPost() {
             let content = await $fetch(`https://raw.githubusercontent.com/${repoUri}/main/${blogContentPath}/${post.path}`)
             mdContent.push(content)
         }
-    })
+    }
 
     mdList.reverse()
     mdContent.reverse()
