@@ -80,6 +80,10 @@ body {
   line-height: 1.6rem;
 }
 
+h1, h2 {
+  border-bottom: 1px solid var(--border);
+}
+
 img {
   width: 100%;
   border-radius: 10px;
