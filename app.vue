@@ -77,11 +77,12 @@ body {
   color: var(--fg);
   overscroll-behavior-x: none;
   font-size: 14px;
-  line-height: 1.6rem;
+  line-height: 1.6;
 }
 
-post-content > h1, post-content > h2 {
+.post-content > h1, .post-content > h2 {
   border-bottom: 1px solid var(--border);
+  padding-bottom: 0.2rem;
 }
 
 img {

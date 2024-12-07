@@ -1,13 +1,13 @@
 <template>
     <div id="container">
         <h1 id="title"><a href="/">피치타르트 블로그</a></h1>
-        <div class="box-cont post-content">
+        <div class="box-cont">
             <div id="post-header">
                 <h2>{{ postTitle }}</h2>
                 <div><a :href="`/p/${route.params.category}`">{{ decodeURI(route.params.category) }}</a></div>
                 <div style="font-size: 0.8em;">{{ route.params.post.split('-')[0] }}</div>
             </div>
-            <div v-html=postContent></div>
+            <div class="post-content" v-html=postContent></div>
         </div>
     </div>
 </template>
