@@ -24,36 +24,36 @@
     </div>
 </template>
 <script setup>
+const repoUri = 'HotoRas/blog'
+const blogContentPath = 'blog/md'
+var folderList = await $fetch(`https://api.github.com/repos/${repoUri}/git/trees/main?recursive=1`)
 
-var folderList = await $fetch(`https://api.github.com/repos/HotoRas/blog/git/trees/main?recursive=1`)
-
-var mdList = []
-var mdContent = []
-var categories = []
+let mdList = []
+let mdContent = []
+let categories = []
 
 async function getPost() {
-
-    for (let folder of folderList.tree) {
-        if (folder.path == 'blog/md') {
-            var postList = await $fetch(folder.url)
-
-            for (let post of postList.tree) {
-                if (post.path.includes('.md')) {
-                    mdList.push(post.path.split('.')[0])
-                    let cat = post.path.split('-')[2] ? post.path.split('-')[2].split('.')[0] : '미분류'
-                    categories.push(cat)
-
-                    var content = await $fetch(`https://raw.githubusercontent.com/HotoRas/blog/main/blog/md/${post.path}`)
-                    mdContent.push(content)
-                }
-            }
+    let postList = {}
+    folderList.tree.foreach(async (folder) => {
+        if (folder.path == blogContentPath) {
+            postList = await $fetch(folder.url)
         }
-    }
+    })
+    postList.tree.foreach(async (post) => {
+        if (post.path.includes('.md')) {
+            mdList.push(post.path.split('.')[0])
+            let cat = post.path.split('-')[2] ? post.path.split('-')[2].split('.')[0] : '미분류'
+            categories.push(cat)
+
+            let content = await $fetch(`https://raw.githubusercontent.com/${repoUri}/main/${blogContentPath}/${post.path}`)
+            mdContent.push(content)
+        }
+    })
 
     mdList.reverse()
     mdContent.reverse()
 
-    var categorieset = new Set(categories);
+    let categorieset = new Set(categories);
     categories = [...categorieset];
 }
 
