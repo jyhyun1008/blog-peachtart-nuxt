@@ -22,14 +22,14 @@ if (route.params.post.includes('(1')) {
     for (let i=0; i<length; i++) {
         try {
             content = await $fetch(`https://raw.githubusercontent.com/jyhyun1008/blog-peachtart-nuxt/main/img/${route.params.post.split('(')[0]}(${i+1}:${length})-${route.params.category}.jpg`)
-            srcUrl.push(`https://raw.githubusercontent.com/jyhyun1008/blog-peachtart-nuxt/main/img/${route.params.post.split('(')[0]}(${i}:${length})-${route.params.category}.jpg`)
+            srcUrl.push(`https://raw.githubusercontent.com/jyhyun1008/blog-peachtart-nuxt/main/img/${route.params.post.split('(')[0]}(${i+1}:${length})-${route.params.category}.jpg`)
         } catch(e) {
             try {
                 content = await $fetch(`https://raw.githubusercontent.com/jyhyun1008/blog-peachtart-nuxt/main/img/${route.params.post.split('(')[0]}(${i+1}:${length})-${route.params.category}.png`)
-                srcUrl.push(`https://raw.githubusercontent.com/jyhyun1008/blog-peachtart-nuxt/main/img/${route.params.post.split('(')[0]}(${i}:${length})-${route.params.category}.png`)
+                srcUrl.push(`https://raw.githubusercontent.com/jyhyun1008/blog-peachtart-nuxt/main/img/${route.params.post.split('(')[0]}(${i+1}:${length})-${route.params.category}.png`)
             } catch(e1) {
                 content = await $fetch(`https://raw.githubusercontent.com/jyhyun1008/blog-peachtart-nuxt/main/img/${route.params.post.split('(')[0]}(${i+1}:${length})-${route.params.category}.webp`)
-                srcUrl.push(`https://raw.githubusercontent.com/jyhyun1008/blog-peachtart-nuxt/main/img/${route.params.post.split('(')[0]}(${i}:${length})-${route.params.category}.webp`)
+                srcUrl.push(`https://raw.githubusercontent.com/jyhyun1008/blog-peachtart-nuxt/main/img/${route.params.post.split('(')[0]}(${i+1}:${length})-${route.params.category}.webp`)
             }
         }
     }
