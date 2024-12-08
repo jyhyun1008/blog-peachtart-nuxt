@@ -26,35 +26,70 @@
 <script setup>
 const repoUri = 'HotoRas/blog'
 const blogContentPath = 'blog/md'
+console.log(`fetch from https://api.github.com/repos/${repoUri}/git/trees/main?recursive=1
+
+Please consult if the url is right!
+`)
 var folderList = await $fetch(`https://api.github.com/repos/${repoUri}/git/trees/main?recursive=1`)
+//console.log(folderList.tree)
 
 let mdList = []
 let mdContent = []
 let categories = []
 
 async function getPost() {
-    let postList = {}
-    for(let folder in folderList.tree) {
+    console.log('Initial loading process start')
+    for(let folder of folderList.tree) {
+        //console.log(`reading folder: ${folder.path}`)
+        //console.log(folder)
         if (folder.path == blogContentPath) {
-            postList = await $fetch(folder.url)
+            console.log(`found ${blogContentPath}, continue`)
+            let postList = await $fetch(folder.url)
+            console.log()
+            for(let post of postList.tree) {
+                console.log(`reading content: ${post.path}`)
+                try {
+                    if (post.path.includes('.md')) {
+                        console.log(`uri: ${post.path.split('.')[0]}`)
+                        mdList.push(post.path.split('.')[0])
+                        let cat = post.path.split('-')[2] ? post.path.split('-')[2].split('.')[0] : '미분류'
+                        console.log(`category: ${cat}`)
+                        categories.push(cat)
+
+                        console.log(`begin request to
+    https://raw.githubusercontent.com/${repoUri}/main/${blogContentPath}/${post.path}
+
+Please consult if url is correct`)
+                        let content = await $fetch(`https://raw.githubusercontent.com/${repoUri}/main/${blogContentPath}/${post.path}`)
+                        mdContent.push(content)
+                    } else {
+                        console.log('not markdown, continue')
+                    }
+                } catch (e) {
+                    console.log(e)
+                }
+            }
         }
     }
-    for(let post in postList.tree) {
-        if (post.path.includes('.md')) {
-            mdList.push(post.path.split('.')[0])
-            let cat = post.path.split('-')[2] ? post.path.split('-')[2].split('.')[0] : '미분류'
-            categories.push(cat)
+    
 
-            let content = await $fetch(`https://raw.githubusercontent.com/${repoUri}/main/${blogContentPath}/${post.path}`)
-            mdContent.push(content)
-        }
-    }
-
+    console.log(`
+Transforming...
+`)
     mdList.reverse()
+    console.log('transform: mdList -> done')
     mdContent.reverse()
+    console.log('transform: mdContent -> done')
 
     let categorieset = new Set(categories);
     categories = [...categorieset];
+    console.log('transform: categories -> done')
+
+    console.log(mdList)
+    console.log()
+    console.log(categories)
+    console.log()
+    console.log('wait...')
 }
 
 await getPost()
