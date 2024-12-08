@@ -24,4 +24,11 @@ try {
 var postTitle = content.split('<---')[0]?.split('title:')[1]?.split('\n')[0]
 var postContent = marked.parse(content.split('--->')[1])
 
+useSeoMeta({
+  title: () => postTitle,
+  ogTitle: () => postTitle,
+  description: content.split('--->')[1].slice(0, 100).replace(/\n\n/gm, ' ').replace(/\n/gm, ' '),
+  ogDescription: content.split('--->')[1].slice(0, 100).replace(/\n\n/gm, ' ').replace(/\n/gm, ' '),
+})
+
 </script>

@@ -6,12 +6,12 @@
       <link rel="stylesheet" href="https://cdn.hugeicons.com/font/hgi-stroke-rounded.css">
       <meta property="og:title" content="피치타르트 블로그" /> 
       <meta property="og:description" content="피치타르트 공식 블로그" /> 
-      <meta property="og:image" content="/public/logo.png" /> 
+      <meta property="og:image" content="/logo.png" /> 
     </Head>
     <NuxtLayout>
       <div id="top-menu">
         <div class="logo-menu">
-          <div class="logo-item"><a href="https://peacht.art"><img src="/public/logo.png"></a></div>
+          <div class="logo-item"><a href="https://peacht.art"><img src="/logo.png"></a></div>
         </div>
         <div class="mid-menu">
           <div class="menu-item"><a href="https://blog.peacht.art"><i class="hgi-stroke hgi-pencil"></i><span class="fullname"> 블로그</span></a></div>

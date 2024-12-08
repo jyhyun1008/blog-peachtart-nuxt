@@ -33,6 +33,10 @@ if (route.params.post.includes('(1')) {
             }
         }
     }
+
+    useSeoMeta({
+    ogImage: () => srcUrl[0],
+    })
 } else {
     try {
         content = await $fetch(`https://raw.githubusercontent.com/jyhyun1008/blog-peachtart-nuxt/main/img/${route.params.post}-${route.params.category}.jpg`)
@@ -46,6 +50,14 @@ if (route.params.post.includes('(1')) {
             srcUrl.push(`https://raw.githubusercontent.com/jyhyun1008/blog-peachtart-nuxt/main/img/${route.params.post}-${route.params.category}.webp`)
         }
     }
+
 }
+
+
+useSeoMeta({
+    title: () => route.params.post.split('(')[0],
+    ogTitle: () => route.params.post.split('(')[0],
+    ogImage: srcUrl[0],
+})
 
 </script>
