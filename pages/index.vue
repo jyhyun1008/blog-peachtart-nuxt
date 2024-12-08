@@ -2,7 +2,7 @@
     <div id="container">
         <h1 id="title"><a href="/">피치타르트 블로그</a></h1>
         <div style="display: flex; align-items: center; gap: 12px">
-            카테고리 : <a href="/">전체보기</a>
+            카테고리 : <div class="category-list"><a href="/">전체보기</a></div>
             <div v-for="category of categories" class="category-list">
                 <a :href="`/p/${category}`">{{ category }}</a>
             </div>
