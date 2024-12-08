@@ -34,9 +34,6 @@ if (route.params.post.includes('(1')) {
         }
     }
 
-    useSeoMeta({
-    ogImage: () => srcUrl[0],
-    })
 } else {
     try {
         content = await $fetch(`https://raw.githubusercontent.com/jyhyun1008/blog-peachtart-nuxt/main/img/${route.params.post}-${route.params.category}.jpg`)
