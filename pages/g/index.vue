@@ -5,21 +5,15 @@
         <div style="display: flex; align-items: center; gap: 12px">
             다른 카테고리 : 
             <div v-for="category of categories" class="category-list">
-                <a :href="`/p/${category}`">{{ category }}</a>
+                <a :href="`/g/${category}`">{{ category }}</a>
             </div>
         </div>
-        <div v-for="(post, i) in mdList">
-            <a :href="`/p/${post.split('-')[2].split('.')[0]}/${post.split('-')[0]}-${post.split('-')[1]}`" class="post-list">
-                <div class="box-cont" v-if="mdContent[i].split('<--->')[0].split('title:')[1]">
-                    <div class="post-cont">
-                        <h2>{{ mdContent[i].split('<--->')[0].split('title:')[1].split('\n')[0].slice(0, 30) }}</h2>
-                        <p>{{ mdContent[i].split('<--->')[1].slice(0,100) }}...</p>
-                    </div>
-                    <div v-if="mdContent[i].split('<--->')[0].split('eyeCatchImg:').length > 1">
-                        <img :src="`${mdContent[i].split('eyeCatchImg:')[1].split('\n')[0]}`" />
-                    </div>
-                </div>
-            </a>
+        <div class="box-cont-grid">
+            <div v-for="(post, i) in mdList">
+                <a :href="`/g/${post.split('-')[2].split('.')[0]}/${post.split('-')[0]}-${post.split('-')[1]}`" class="post-list">
+                    <img :src="`${mdContent[i]}`" />
+                </a>
+            </div>
         </div>
     </div>
 </template>
@@ -44,8 +38,8 @@ async function getPost() {
                     let cat = post.path.split('-')[2] ? post.path.split('-')[2].split('.')[0] : '미분류'
                     categories.push(cat)
 
-                    var content = await $fetch(`https://raw.githubusercontent.com/jyhyun1008/blog-peachtart-nuxt/main/img/${post.path}`)
-                    mdContent.push(content)
+                    //var content = await $fetch(`https://raw.githubusercontent.com/jyhyun1008/blog-peachtart-nuxt/main/img/${post.path}`)
+                    mdContent.push(`https://raw.githubusercontent.com/jyhyun1008/blog-peachtart-nuxt/main/img/${post.path}`)
                 }
             }
         }

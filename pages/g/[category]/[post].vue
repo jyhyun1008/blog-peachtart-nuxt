@@ -4,10 +4,10 @@
         <div class="box-cont">
             <div id="post-header">
                 <h2>{{ route.params.post }}</h2>
-                <div><a :href="`/p/${route.params.category}`">{{ decodeURI(route.params.category) }}</a></div>
+                <div><a :href="`/g/${route.params.category}`">{{ decodeURI(route.params.category) }}</a></div>
                 <div style="font-size: 0.8em;">{{ route.params.post.split('-')[0] }}</div>
             </div>
-            <div><img :src="`/p/${content}`" /></div>
+            <div><img :src="`${srcUrl}`" /></div>
         </div>
     </div>
 </template>
@@ -16,15 +16,18 @@
 import { marked } from 'marked';
 const route = useRoute()
 var content
+var srcUrl
 try {
-    content = await $fetch(`https://raw.githubusercontent.com/jyhyun1008/blog-peachtart-nuxt/main/md/${route.params.post}-${route.params.category}.jpg`)
+    content = await $fetch(`https://raw.githubusercontent.com/jyhyun1008/blog-peachtart-nuxt/main/img/${route.params.post}-${route.params.category}.jpg`)
+    srcUrl = `https://raw.githubusercontent.com/jyhyun1008/blog-peachtart-nuxt/main/img/${route.params.post}-${route.params.category}.jpg`
 } catch(e) {
     try {
-        content = await $fetch(`https://raw.githubusercontent.com/jyhyun1008/blog-peachtart-nuxt/main/md/${route.params.post}-${route.params.category}.png`)
+        content = await $fetch(`https://raw.githubusercontent.com/jyhyun1008/blog-peachtart-nuxt/main/img/${route.params.post}-${route.params.category}.png`)
+        srcUrl = `https://raw.githubusercontent.com/jyhyun1008/blog-peachtart-nuxt/main/img/${route.params.post}-${route.params.category}.png`
     } catch(e1) {
-        content = await $fetch(`https://raw.githubusercontent.com/jyhyun1008/blog-peachtart-nuxt/main/md/${route.params.post}-${route.params.category}.webp`)
+        content = await $fetch(`https://raw.githubusercontent.com/jyhyun1008/blog-peachtart-nuxt/main/img/${route.params.post}-${route.params.category}.webp`)
+        srcUrl = `https://raw.githubusercontent.com/jyhyun1008/blog-peachtart-nuxt/main/img/${route.params.post}-${route.params.category}.webp`
     }
 }
-var postTitle = content.split('<--->')[0]?.split('title:')[1]?.split('\n')[0]
 
 </script>
