@@ -21,7 +21,7 @@ try {
 } catch(e) {
     content = await $fetch(`https://raw.githubusercontent.com/jyhyun1008/blog-peachtart-nuxt/main/md/${route.params.post}.md`)
 }
-var postTitle = content.split('<--->')[0]?.split('title:')[1]?.split('\n')[0]
-var postContent = marked.parse(content.split('<--->')[1])
+var postTitle = content.split('<---')[0]?.split('title:')[1]?.split('\n')[0]
+var postContent = marked.parse(content.split('--->')[1])
 
 </script>
