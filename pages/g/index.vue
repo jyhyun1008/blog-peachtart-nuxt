@@ -34,12 +34,14 @@ async function getPost() {
 
             for (let post of postList.tree) {
                 if (post.path.includes('.png') || post.path.includes('.jpg') || post.path.includes('.webp')) {
-                    mdList.push(post.path.split('.')[0])
-                    let cat = post.path.split('-')[2] ? post.path.split('-')[2].split('.')[0] : '미분류'
-                    categories.push(cat)
+                    if (post.path.includes('(1') || !post.path.includes('(')) {
+                        mdList.push(post.path.split('.')[0])
+                        let cat = post.path.split('-')[2] ? post.path.split('-')[2].split('.')[0] : '미분류'
+                        categories.push(cat)
 
-                    //var content = await $fetch(`https://raw.githubusercontent.com/jyhyun1008/blog-peachtart-nuxt/main/img/${post.path}`)
-                    mdContent.push(`https://raw.githubusercontent.com/jyhyun1008/blog-peachtart-nuxt/main/img/${post.path}`)
+                        //var content = await $fetch(`https://raw.githubusercontent.com/jyhyun1008/blog-peachtart-nuxt/main/img/${post.path}`)
+                        mdContent.push(`https://raw.githubusercontent.com/jyhyun1008/blog-peachtart-nuxt/main/img/${post.path}`)
+                    }
                 }
             }
         }
