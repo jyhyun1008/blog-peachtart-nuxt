@@ -40,8 +40,9 @@ let categories = []
 async function getPost() {
     console.log('Initial loading process start')
     for(let folder of folderList.tree) {
-        //console.log(`reading folder: ${folder.path}`)
+        console.log(`reading folder: ${folder.path}`)
         //console.log(folder)
+        if (!folder) continue
         if (folder.path == blogContentPath) {
             console.log(`found ${blogContentPath}, continue`)
             let postList = await $fetch(folder.url)
