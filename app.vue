@@ -101,7 +101,7 @@ img {
     width: 100vw;
     height: 3em;
     display: flex;
-    background: #ff9899;
+    background: var(--accent);
     position: fixed;
     z-index: 9999999;
     top:0;
