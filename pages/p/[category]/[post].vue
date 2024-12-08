@@ -29,6 +29,7 @@ useSeoMeta({
   ogTitle: () => postTitle,
   description: content.split('--->')[1].slice(0, 100).replace(/\n\n/gm, ' ').replace(/\n/gm, ' '),
   ogDescription: content.split('--->')[1].slice(0, 100).replace(/\n\n/gm, ' ').replace(/\n/gm, ' '),
+  ogImage: content.split('<---')[0].split('eyeCatchImg: ')[1].split('\n')[0],
 })
 
 </script>
