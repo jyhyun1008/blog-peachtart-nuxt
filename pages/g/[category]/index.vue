@@ -1,7 +1,7 @@
 <template>
     <div id="container">
         <h1 id="title"><a href="/">피치타르트 블로그</a></h1>
-        <h2 id="category-title">{{ route.params.category }}</h2>
+        <h2 id="category-title">갤러리 / {{ route.params.category }}</h2>
         <div style="display: flex; align-items: center; gap: 12px">
             다른 카테고리 : 
             <div v-for="category of categories" class="category-list">

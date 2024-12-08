@@ -199,6 +199,9 @@ img {
 .box-cont-grid img {
     width: 100% !important;
     max-width: unset !important;
+    aspect-ratio: 1 / 1 !important;
+    object-fit: cover;
+    object-position: center;
 }
 
 /*categorylist*/

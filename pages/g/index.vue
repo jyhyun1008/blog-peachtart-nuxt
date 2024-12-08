@@ -3,7 +3,7 @@
         <h1 id="title"><a href="/">피치타르트 블로그</a></h1>
         <h2 id="category-title">갤러리</h2>
         <div style="display: flex; align-items: center; gap: 12px">
-            다른 카테고리 : 
+            카테고리 : 
             <div v-for="category of categories" class="category-list">
                 <a :href="`/g/${category}`">{{ category }}</a>
             </div>
