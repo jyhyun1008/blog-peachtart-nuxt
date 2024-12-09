@@ -1,7 +1,10 @@
 <template>
     <div id="container-right">
         <h1 id="title"><a href="/">피치타르트 블로그</a></h1>
-        <h2 id="category-title">문서 / 첫 화면</h2>
+        <h2 id="category-title">
+            <a href="/docs/">문서</a>
+             / 첫 화면
+        </h2>
         <div id="leftsidebar">
             <div v-for="(title, i) of titlesArray">
                 <div :class="`nav-heading-${title[0]}`"><a :href="`#heading-${i}`">{{ title.split('>')[1] }}</a></div>
