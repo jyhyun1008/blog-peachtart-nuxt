@@ -25,14 +25,7 @@
     </NuxtLayout>
   </div>
 </template>
-
 <script>
-
-
-export default {
-    mounted() {
-    }
-  }
 </script>
 <style>
 
@@ -245,6 +238,22 @@ a.post-list {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+/*docs*/
+#leftsidebar {
+  position: fixed;
+  width: 200px;
+  z-index: 999;
+  height: 100dvh;
+  top: 0;
+  left: 0;
+  background-color: white;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 </style>
