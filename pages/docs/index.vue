@@ -27,7 +27,7 @@ for (let i=1; i<markedArray.length; i++) {
     markedContent += `<h${markedArray[i][0]} id="heading-${i}"${markedArray[i].slice(1)}`
 }
 function replacer(match, p1, offset, string) {
-  return p1.replace(/\//gm, '%2F');
+  return '/docs/'+p1.replace(/\//gm, '%2F');
 }
 markedContent = markedContent.replace(/\"\/docs\/([^\"].+)\"/gm, replacer)
 
