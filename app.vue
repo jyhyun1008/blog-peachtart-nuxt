@@ -87,6 +87,13 @@ img {
   border-radius: 10px;
 }
 
+blockquote {
+  border-left: 3px solid var(--accent);
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  background-color: #00000011;
+}
+
 /*navbar*/
 
 .menu_toolbar {
