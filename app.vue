@@ -92,6 +92,7 @@ blockquote {
   margin-inline-start: 0;
   margin-inline-end: 0;
   background-color: #00000011;
+  padding-left: 1em;
 }
 
 /*navbar*/
