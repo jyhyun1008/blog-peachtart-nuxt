@@ -22,7 +22,7 @@ const route = useRoute()
 try {
     content = await $fetch(`https://raw.githubusercontent.com/jyhyun1008/blog-peachtart-nuxt/main/docs/${route.params.document}.md`)
 } catch(e) {
-    content = await $fetch(`https://raw.githubusercontent.com/jyhyun1008/blog-peachtart-nuxt/main/docs/${route.params.document}%2Findex.md`)
+    content = await $fetch(`https://raw.githubusercontent.com/jyhyun1008/blog-peachtart-nuxt/main/docs/${route.params.document}/index.md`)
 }
 let markedArray = marked.parse(content).split('<h')
 let titlesArray = []
