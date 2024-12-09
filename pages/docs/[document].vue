@@ -3,7 +3,7 @@
         <h1 id="title"><a href="/">피치타르트 블로그</a></h1>
         <h2 id="category-title">
             <a href="/docs/">문서</a>
-            <span v-for="tree of route.params.document.split('/')"> / <a :href="`/docs/${route.params.document}`">{{ tree }}</a></span>
+            <span v-for="tree of route.params.document.split('/')"> / <a :href="`/docs/${encodeURIComponent(route.params.document)}`">{{ tree }}</a></span>
         </h2>
         <div id="leftsidebar">
             <div v-for="(title, i) of titlesArray">
@@ -19,7 +19,11 @@
 
 import { marked } from 'marked';
 const route = useRoute()
-let content = await $fetch(`https://raw.githubusercontent.com/jyhyun1008/blog-peachtart-nuxt/main/docs/${route.params.document}.md`)
+try {
+    content = await $fetch(`https://raw.githubusercontent.com/jyhyun1008/blog-peachtart-nuxt/main/docs/${route.params.document}.md`)
+} catch(e) {
+    content = await $fetch(`https://raw.githubusercontent.com/jyhyun1008/blog-peachtart-nuxt/main/docs/${route.params.document}%2Findex.md`)
+}
 let markedArray = marked.parse(content).split('<h')
 let titlesArray = []
 let markedContent = markedArray[0]
