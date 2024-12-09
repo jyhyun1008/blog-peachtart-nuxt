@@ -1,15 +1,13 @@
 <template>
-    <div id="container">
+    <div id="container-right">
         <h1 id="title"><a href="/">피치타르트 블로그</a></h1>
+        <h2 id="category-title">문서 / {{ route.params.document }}</h2>
         <div id="leftsidebar">
             <div v-for="(title, i) of titlesArray">
                 <div :class="`nav-heading-${title[0]}`"><a :href="`#heading-${i}`">{{ title.split('>')[1] }}</a></div>
             </div>
         </div>
         <div class="box-cont">
-            <div id="post-header">
-                <h2>{{ route.params.document }}</h2>
-            </div>
             <div class="post-content" v-html=markedContent></div>
         </div>
     </div>
@@ -32,7 +30,7 @@ useSeoMeta({
   ogTitle: () => route.params.document,
   description: content.slice(0, 100).replace(/\n\n/gm, ' ').replace(/\n/gm, ' '),
   ogDescription: content.slice(0, 100).replace(/\n\n/gm, ' ').replace(/\n/gm, ' '),
-  ogImage: content.split('img src="')[1].split('" ')[0] ? content.split('img src="')[1].split('" ')[0] : '/logo.png',
+  ogImage: content.split('img src="')[1] ? content.split('img src="')[1].split('" ')[0] : '/logo.png',
 })
 
 </script>

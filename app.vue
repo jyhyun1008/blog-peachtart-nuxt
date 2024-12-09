@@ -55,6 +55,10 @@
   --bg: #f8f8fb;
 }
 
+#nuxt-devtools-container {
+  display: none;
+}
+
 div {
   box-sizing: border-box;
 }
@@ -241,6 +245,18 @@ a.post-list {
 }
 
 /*docs*/
+
+#container-right {
+  position:relative;
+  left: 100px;
+  width: calc(100vw - 200px);
+  max-width: 640px;
+  margin: 100px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 #leftsidebar {
   position: fixed;
   width: 200px;
@@ -254,6 +270,54 @@ a.post-list {
   overflow-y: auto;
   display: flex;
   flex-direction: column;
+  padding: 4em 1em 1em 1em;
+  gap: 10px;
+}
+
+#leftsidebar a {
+  color: inherit !important;
+}
+
+@media (max-width: 900px) {
+  #leftsidebar {
+    display: none;
+  }
+
+  #container-right {
+    position: unset;
+    width: 100vw;
+    max-width: 640px;
+    margin: 100px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+}
+
+.nav-heading-1 {
+  font-weight: 700;
+  margin-top: 1em;
+}
+
+.nav-heading-2 {
+  padding-left: 1em;
+}
+
+.nav-heading-3 {
+  padding-left: 2em;
+}
+
+.nav-heading-4 {
+  padding-left: 3em;
+}
+
+.nav-heading-5 {
+  padding-left: 4em;
+}
+
+.nav-heading-6 {
+  padding-left: 5em;
 }
 
 </style>
