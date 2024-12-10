@@ -6,7 +6,7 @@
             <span v-for="tree of route.params.document.split('/')"> / <a :href="`/docs/${encodeURIComponent(route.params.document.split(tree)[0]+tree)}`">{{ tree }}</a></span>
         </h2>
         <div id="leftsidebar">
-            <div>목 차</div>
+            <div style="margin-top: 1em;">목 차</div>
             <div v-for="(title, i) of titlesArray">
                 <div :class="`nav-heading-${title[0]}`">
                     <a :href="`#heading-${i}`" v-if="!title.includes('href')">{{ title.split('>')[1] }}</a>

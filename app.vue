@@ -91,8 +91,16 @@ blockquote {
   border-left: 3px solid var(--accent);
   margin-inline-start: 0;
   margin-inline-end: 0;
-  background-color: #00000011;
   padding: 0.5em 0 0.5em 1em;
+}
+
+code, pre, blockquote {
+  background-color: var(--bg);
+}
+
+code, pre {
+  padding: 0 4px;
+  border-radius: 10px;
 }
 
 /*navbar*/
