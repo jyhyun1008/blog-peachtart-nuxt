@@ -6,6 +6,7 @@
              / 첫 화면
         </h2>
         <div id="leftsidebar">
+            <div>목 차</div>
             <div v-for="(title, i) of titlesArray">
                 <div :class="`nav-heading-${title[0]}`">
                     <a :href="`#heading-${i}`" v-if="!title.includes('href')">{{ title.split('>')[1] }}</a>
