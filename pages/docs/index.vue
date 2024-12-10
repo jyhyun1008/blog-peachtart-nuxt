@@ -7,7 +7,10 @@
         </h2>
         <div id="leftsidebar">
             <div v-for="(title, i) of titlesArray">
-                <div :class="`nav-heading-${title[0]}`"><a :href="`#heading-${i}`">{{ title.split('>')[1] }}</a></div>
+                <div :class="`nav-heading-${title[0]}`">
+                    <a :href="`#heading-${i}`" v-if="!title.includes('href')">{{ title.split('>')[1] }}</a>
+                    <a :href="`#heading-${i}`" v-else>{{ title.split('>')[2].split('<')[0] }}</a>
+                </div>
             </div>
         </div>
         <div class="box-cont">
