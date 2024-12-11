@@ -34,6 +34,13 @@
 @import url('https://fastly.jsdelivr.net/npm/galmuri@latest/dist/galmuri.css');
 
 @font-face {
+     font-family: 'DungGeunMo';
+     src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff') format('woff');
+     font-weight: normal;
+     font-style: normal;
+}
+
+@font-face {
     font-family: 'Pretendard';
     src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
     font-weight: 400;
@@ -46,6 +53,22 @@
     font-weight: 700;
     font-style: normal;
 }
+
+/*프리텐다드 쓸거면 이거 해제하세요*/
+
+/* body {
+  font-family: 'Pretendard' !important;
+}
+
+.box-cont, .box-cont-grid {
+  font-size: 16px;
+}
+
+#title, h1, h2 {
+  font-family: unset !important;
+} */
+
+/* basic */
 
 :root {
   --accent: #ff9899;
@@ -69,7 +92,8 @@ a {
 }
 
 body {
-  font-family: 'Pretendard';
+  /*font-family: 'Pretendard';*/
+  font-family: Galmuri11;
   background-color: var(--bg);
   color: var(--fg);
   overscroll-behavior-x: none;
@@ -77,7 +101,12 @@ body {
   line-height: 1.6;
 }
 
+#title, h1, h2 {
+  font-family: 'DungGeunMo';
+}
+
 .post-content > h1, .post-content > h2 {
+  font-family: 'DungGeunMo';
   border-bottom: 1px solid var(--border);
   padding-bottom: 0.2rem;
 }
@@ -193,7 +222,6 @@ code, pre {
     flex-direction: column;
     gap: 10px;
     padding: 10px;
-    font-size: 16px;
 }
 
 .box-cont-grid {
@@ -206,7 +234,6 @@ code, pre {
     grid-template-columns: 1fr 1fr;
     gap: 10px;
     padding: 10px;
-    font-size: 16px;
 }
 
 .box-cont-grid img {
