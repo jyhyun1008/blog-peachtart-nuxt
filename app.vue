@@ -99,6 +99,8 @@ body {
   overscroll-behavior-x: none;
   font-size: 14px;
   line-height: 1.6;
+  margin: 0;
+  padding: 0;
 }
 
 #title, h1, h2 {
