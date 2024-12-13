@@ -131,7 +131,6 @@ code, pre, blockquote {
 
 pre {
   overflow-x: scroll;
-  white-space:nowrap;
 }
 
 code, pre {
