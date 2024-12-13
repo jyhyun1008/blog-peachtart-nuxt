@@ -129,6 +129,11 @@ code, pre, blockquote {
   background-color: var(--bg);
 }
 
+pre {
+  overflow-x: scroll;
+  white-space:nowrap;
+}
+
 code, pre {
   padding: 0 4px;
   border-radius: 10px;
