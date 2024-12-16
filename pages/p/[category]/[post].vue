@@ -8,14 +8,19 @@
                 <div style="font-size: 0.8em;">{{ route.params.post.split('-')[0] }}</div>
             </div>
             <div class="post-content" v-html=postContent></div>
-            <div v-html=script></div>
+            <Utterances
+                repo='jyhyun1008/blog-peachtart-nuxt'
+                issue-term='pathname'
+                theme='github-light'
+                crossorigin='anonymous'
+            />
         </div>
     </div>
 </template>
 <script setup>
 
 import { marked } from 'marked';
-let script = "\<script src='https://utteranc.es/client.js' repo='jyhyun1008/blog-peachtart-nuxt' issue-term='url' theme='github-light' crossorigin='anonymous' async\>\</script\>"
+import { Utterances } from 'utterances-vue-component'
 const route = useRoute()
 var content
 try {

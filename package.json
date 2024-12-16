@@ -12,6 +12,7 @@
   "dependencies": {
     "marked": "^15.0.3",
     "nuxt": "^3.14.1592",
+    "utterances-vue-component": "^1.0.0",
     "vue": "latest",
     "vue-router": "latest"
   }

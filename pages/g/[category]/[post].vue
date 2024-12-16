@@ -8,16 +8,20 @@
                 <div style="font-size: 0.8em;">{{ route.params.post.split('-')[0] }}</div>
             </div>
             <div v-for="url of srcUrl"><img :src="`${url}`" /></div>
-            <div v-html=script></div>
+            <Utterances
+                repo='jyhyun1008/blog-peachtart-nuxt'
+                issue-term='pathname'
+                theme='github-light'
+                crossorigin='anonymous'
+            />
         </div>
     </div>
 </template>
 <script setup>
 
-import { marked } from 'marked';
+import { Utterances } from 'utterances-vue-component'
 const route = useRoute()
 
-let script = "\<script src='https://utteranc.es/client.js' repo='jyhyun1008/blog-peachtart-nuxt' issue-term='url' theme='github-light' crossorigin='anonymous' async\>\</script\>"
 var content
 var srcUrl = []
 if (route.params.post.includes('(1')) {
