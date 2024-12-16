@@ -8,6 +8,7 @@
                 <div style="font-size: 0.8em;">{{ route.params.post.split('-')[0] }}</div>
             </div>
             <div v-for="url of srcUrl"><img :src="`${url}`" /></div>
+            <div v-html=script></div>
         </div>
     </div>
 </template>
@@ -15,6 +16,8 @@
 
 import { marked } from 'marked';
 const route = useRoute()
+
+let script = "\<script src='https://utteranc.es/client.js' repo='jyhyun1008/blog-peachtart-nuxt' issue-term='url' theme='github-light' crossorigin='anonymous' async\>\</script\>"
 var content
 var srcUrl = []
 if (route.params.post.includes('(1')) {
